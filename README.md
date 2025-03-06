@@ -2,13 +2,13 @@
 
 
  
-## NAME:
+## NAME: LAAVANYA.R
 
-## DEPARTMENT:
+## DEPARTMENT: AI&DS
 
-## ROLL NO:
+## ROLL NO: 212224230135
 
-## DATE OF EXPERIMENT:
+## DATE OF EXPERIMENT: 03-03-2025
 
 ## AIM
 
@@ -64,9 +64,35 @@ Connect LED 2 to GP17 via a 330Ω resistor.
 Connect the other terminals of the switches to GND.
 
 ## PROGRAM (MicroPython)
-''''
-
-
+```
+import machine import Pin
+from time import sleep
+switch1=Pin(2, Pin.IN)
+switch2=Pin(3, Pin.IN)
+led = Pin(15,Pin.OUT)
+led2 = Pin(16, Pin.OUT)
+   
+while True:
+    sw1_state= switch1.value()
+    sw2_state= switch2.value()
+    print("Switch 1 state:",sw1_state)
+    print("Switch 2 state:",sw2_state)
+    led.value(0)
+    if sw1_state==1 and sw2_state==1:
+        led.value(0)
+        led2.value(0)
+    elif sw1_state==1:
+            led.value(1)
+            sleep(0.5)
+            led.value(0)
+            led2.value(0)
+    elif sw2_state==1:
+            led.value(0)
+            led2.value(1)
+            sleep(0.5)
+            led2.value(0)
+    sleep(0.5)
+```
 
  
 
@@ -74,15 +100,30 @@ Connect the other terminals of the switches to GND.
 
 
 
-FIGURE-02: CIRCUIT CONNECTION
+FIGURE-01: BOTH THE SWITCH ON
 
-FIGURE-03: CODE EXECUTION OUTPUT
+![Screenshot 2025-03-03 110831](https://github.com/user-attachments/assets/24e9b62f-3bf0-475a-b173-163452365d28)
 
-FIGURE-04: LED STATUS BASED ON SWITCH INPUTS
+
+FIGURE-02: FIRST SWITCH ON AND SECOND SWITCH OFF
+
+![Screenshot 2025-03-03 110752](https://github.com/user-attachments/assets/0989bd52-6a04-49a3-af67-17481da90e1a)
+
+
+FIGURE-03: FIRST SWITCH OFF AND SECOND SWITCH ON
+
+![Screenshot 2025-03-03 112932](https://github.com/user-attachments/assets/d5082da3-282e-4b9b-98a9-c167b45fe5a4)
+
+FIGURE-04: BOTH THE SWITCH OFF
+
+![Screenshot 2025-03-03 105949](https://github.com/user-attachments/assets/e21978a4-aad4-442b-b44c-226b57cb8693)
+
+
 ## TIMING DIGAGRAM 
 
 
-UPLOAD YOUR TIMING DIGARAM HERE 
+![WhatsApp Image 2025-03-06 at 7 13 02 PM](https://github.com/user-attachments/assets/8922f88b-a39d-494f-a4c7-26d2017b7c21)
+ 
 
 
 
